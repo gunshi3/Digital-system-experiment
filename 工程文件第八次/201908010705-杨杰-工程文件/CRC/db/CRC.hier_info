@@ -1,0 +1,331 @@
+|CRC
+RD0 <= USBcon:inst.nrd
+CLK => USBcon:inst.CLK
+CLK => scan_led3:inst6.clk
+nRxf => USBcon:inst.nRxf
+nTEX => USBcon:inst.nTEX
+Din[0] <= inst2[0]
+Din[1] <= inst2[1]
+Din[2] <= inst2[2]
+Din[3] <= inst2[3]
+Din[4] <= inst2[4]
+Din[5] <= inst2[5]
+Din[6] <= inst2[6]
+Din[7] <= inst2[7]
+WR0 <= USBcon:inst.wr
+qa <= scan_led3:inst6.qa
+qb <= scan_led3:inst6.qb
+qc <= scan_led3:inst6.qc
+qd <= scan_led3:inst6.qd
+qe <= scan_led3:inst6.qe
+qf <= scan_led3:inst6.qf
+qg <= scan_led3:inst6.qg
+bsg[0] <= scan_led3:inst6.bsg[0]
+bsg[1] <= scan_led3:inst6.bsg[1]
+bsg[2] <= scan_led3:inst6.bsg[2]
+
+
+|CRC|USBcon:inst
+nrd <= usbconnection:inst.nrd
+CLK => usbconnection:inst.clock
+CLK => inst3[7].CLK
+CLK => inst3[6].CLK
+CLK => inst3[5].CLK
+CLK => inst3[4].CLK
+CLK => inst3[3].CLK
+CLK => inst3[2].CLK
+CLK => inst3[1].CLK
+CLK => inst3[0].CLK
+CLK => inst4[7].CLK
+CLK => inst4[6].CLK
+CLK => inst4[5].CLK
+CLK => inst4[4].CLK
+CLK => inst4[3].CLK
+CLK => inst4[2].CLK
+CLK => inst4[1].CLK
+CLK => inst4[0].CLK
+nRxf => usbconnection:inst.nrxf
+nTEX => usbconnection:inst.ntxe
+wr <= usbconnection:inst.wr
+dout[0] <= inst4[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= inst4[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= inst4[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= inst4[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= inst4[4].DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= inst4[5].DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= inst4[6].DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= inst4[7].DB_MAX_OUTPUT_PORT_TYPE
+Din[0] => inst3[0].DATAIN
+Din[1] => inst3[1].DATAIN
+Din[2] => inst3[2].DATAIN
+Din[3] => inst3[3].DATAIN
+Din[4] => inst3[4].DATAIN
+Din[5] => inst3[5].DATAIN
+Din[6] => inst3[6].DATAIN
+Din[7] => inst3[7].DATAIN
+
+
+|CRC|USBcon:inst|usbconnection:inst
+reset => wr~1.OUTPUTSELECT
+reset => nrd~1.OUTPUTSELECT
+reset => reg_fstate.send_data_host.OUTPUTSELECT
+reset => reg_fstate.latch_data_from_host.OUTPUTSELECT
+reset => reg_fstate.set_nrd_low.OUTPUTSELECT
+reset => reg_fstate.wait_ntxe_low.OUTPUTSELECT
+reset => reg_fstate.set_wr_high.OUTPUTSELECT
+reset => reg_fstate.wait_nrxf_low.OUTPUTSELECT
+nrxf => Selector0.IN3
+nrxf => reg_fstate~1.DATAB
+ntxe => Selector1.IN3
+ntxe => reg_fstate~0.DATAB
+nrd <= nrd~1.DB_MAX_OUTPUT_PORT_TYPE
+wr <= wr~1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6
+qa <= 7449:inst3.OA
+din0[0] => mux4_3_1:inst.d0[0]
+din0[1] => mux4_3_1:inst.d0[1]
+din0[2] => mux4_3_1:inst.d0[2]
+din0[3] => mux4_3_1:inst.d0[3]
+din1[0] => mux4_3_1:inst.d1[0]
+din1[1] => mux4_3_1:inst.d1[1]
+din1[2] => mux4_3_1:inst.d1[2]
+din1[3] => mux4_3_1:inst.d1[3]
+din2[0] => mux4_3_1:inst.d2[0]
+din2[1] => mux4_3_1:inst.d2[1]
+din2[2] => mux4_3_1:inst.d2[2]
+din2[3] => mux4_3_1:inst.d2[3]
+clk => counter4:inst2.clk
+qc <= 7449:inst3.OC
+qd <= 7449:inst3.OD
+qe <= 7449:inst3.OE
+qf <= 7449:inst3.OF
+qg <= 7449:inst3.OG
+qb <= 7449:inst3.OB
+bsg[0] <= inst9[0].DB_MAX_OUTPUT_PORT_TYPE
+bsg[1] <= inst9[1].DB_MAX_OUTPUT_PORT_TYPE
+bsg[2] <= inst9[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6|7449:inst3
+OG <= 33.DB_MAX_OUTPUT_PORT_TYPE
+C => 9.IN0
+BIN => 13.IN1
+BIN => 12.IN1
+BIN => 11.IN1
+BIN => 14.IN1
+B => 8.IN0
+A => 7.IN0
+D => 10.IN0
+OF <= 37.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 32.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 36.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 31.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 35.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 34.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6|mux4_3_1:inst
+d0[0] => dout~7.DATAB
+d0[1] => dout~6.DATAB
+d0[2] => dout~5.DATAB
+d0[3] => dout~4.DATAB
+d1[0] => dout~3.DATAB
+d1[1] => dout~2.DATAB
+d1[2] => dout~1.DATAB
+d1[3] => dout~0.DATAB
+d2[0] => dout~3.DATAA
+d2[1] => dout~2.DATAA
+d2[2] => dout~1.DATAA
+d2[3] => dout~0.DATAA
+sel[0] => Equal0.IN1
+sel[0] => Equal1.IN0
+sel[1] => Equal0.IN0
+sel[1] => Equal1.IN1
+dout[0] <= dout~7.DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= dout~6.DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= dout~5.DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= dout~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6|counter4:inst2
+q[0] <= 74161:inst.QA
+q[1] <= 74161:inst.QB
+clk => inst3.CLK
+clk => 74161:inst.CLK
+
+
+|CRC|scan_led3:inst6|counter4:inst2|74161:inst
+clk => f74161:sub.clk
+ldn => ~NO_FANOUT~
+clrn => f74161:sub.clrn
+enp => f74161:sub.enp
+ent => f74161:sub.ent
+d => ~NO_FANOUT~
+c => ~NO_FANOUT~
+b => ~NO_FANOUT~
+a => ~NO_FANOUT~
+qd <= f74161:sub.qd
+qc <= f74161:sub.qc
+qb <= f74161:sub.qb
+qa <= f74161:sub.qa
+rco <= f74161:sub.rco
+
+
+|CRC|scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub
+RCO <= 105.DB_MAX_OUTPUT_PORT_TYPE
+CLRN => 110.ACLR
+CLRN => 99.ACLR
+CLRN => 87.ACLR
+CLRN => 9.ACLR
+CLK => 110.CLK
+CLK => 99.CLK
+CLK => 87.CLK
+CLK => 9.CLK
+D => 113.IN0
+LDN => 117.IN0
+LDN => 77.IN1
+LDN => 86.IN1
+LDN => 98.IN1
+LDN => 108.IN1
+ENP => 106.IN0
+ENP => 96.IN0
+ENP => 89.IN0
+ENP => 79.IN0
+C => 101.IN0
+B => 91.IN0
+A => 76.IN0
+ENT => 82.DATAIN
+QD <= 110.DB_MAX_OUTPUT_PORT_TYPE
+QC <= 99.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 87.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 9.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6|decoder2_3:inst1
+seg[0] <= inst5.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+data[0] => 74139:inst.A1
+data[1] => 74139:inst.B1
+
+
+|CRC|scan_led3:inst6|decoder2_3:inst1|74139:inst
+Y10N <= 33.DB_MAX_OUTPUT_PORT_TYPE
+G1N => 7.IN0
+B1 => 11.IN0
+A1 => 8.IN0
+Y11N <= 34.DB_MAX_OUTPUT_PORT_TYPE
+Y12N <= 35.DB_MAX_OUTPUT_PORT_TYPE
+Y13N <= 36.DB_MAX_OUTPUT_PORT_TYPE
+Y20N <= 37.DB_MAX_OUTPUT_PORT_TYPE
+G2N => 12.IN0
+B2 => 16.IN0
+A2 => 13.IN0
+Y21N <= 38.DB_MAX_OUTPUT_PORT_TYPE
+Y22N <= 39.DB_MAX_OUTPUT_PORT_TYPE
+Y23N <= 40.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|scan_led3:inst6|pro7449:inst4
+qin[0] => qout~6.DATAA
+qin[0] => Equal0.IN2
+qin[0] => Equal1.IN2
+qin[0] => Equal2.IN4
+qin[0] => Equal3.IN4
+qin[0] => Equal4.IN4
+qin[0] => Equal5.IN3
+qin[0] => Equal6.IN3
+qin[0] => Equal7.IN0
+qin[1] => qout~5.DATAA
+qin[1] => Equal0.IN3
+qin[1] => Equal1.IN3
+qin[1] => Equal2.IN0
+qin[1] => Equal3.IN0
+qin[1] => Equal4.IN5
+qin[1] => Equal5.IN4
+qin[1] => Equal6.IN4
+qin[1] => Equal7.IN1
+qin[2] => qout~4.DATAA
+qin[2] => Equal0.IN4
+qin[2] => Equal1.IN0
+qin[2] => Equal2.IN5
+qin[2] => Equal3.IN1
+qin[2] => Equal4.IN0
+qin[2] => Equal5.IN0
+qin[2] => Equal6.IN5
+qin[2] => Equal7.IN2
+qin[3] => qout~3.DATAA
+qin[3] => Equal0.IN5
+qin[3] => Equal1.IN1
+qin[3] => Equal2.IN6
+qin[3] => Equal3.IN5
+qin[3] => Equal4.IN1
+qin[3] => Equal5.IN5
+qin[3] => Equal6.IN6
+qin[3] => Equal7.IN3
+qin[4] => qout~2.DATAA
+qin[4] => Equal0.IN6
+qin[4] => Equal1.IN4
+qin[4] => Equal2.IN1
+qin[4] => Equal3.IN6
+qin[4] => Equal4.IN2
+qin[4] => Equal5.IN1
+qin[4] => Equal6.IN0
+qin[4] => Equal7.IN4
+qin[5] => qout~1.DATAA
+qin[5] => Equal0.IN0
+qin[5] => Equal1.IN5
+qin[5] => Equal2.IN2
+qin[5] => Equal3.IN2
+qin[5] => Equal4.IN6
+qin[5] => Equal5.IN2
+qin[5] => Equal6.IN1
+qin[5] => Equal7.IN5
+qin[6] => qout~0.DATAA
+qin[6] => Equal0.IN1
+qin[6] => Equal1.IN6
+qin[6] => Equal2.IN3
+qin[6] => Equal3.IN3
+qin[6] => Equal4.IN3
+qin[6] => Equal5.IN6
+qin[6] => Equal6.IN2
+qin[6] => Equal7.IN6
+qout[0] <= qout~55.DB_MAX_OUTPUT_PORT_TYPE
+qout[1] <= qout~54.DB_MAX_OUTPUT_PORT_TYPE
+qout[2] <= qout~53.DB_MAX_OUTPUT_PORT_TYPE
+qout[3] <= qout~52.DB_MAX_OUTPUT_PORT_TYPE
+qout[4] <= qout~51.DB_MAX_OUTPUT_PORT_TYPE
+qout[5] <= qout~50.DB_MAX_OUTPUT_PORT_TYPE
+qout[6] <= qout~49.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|CRC|road_sel:inst8
+din[0] => c~8.DATAB
+din[0] => c~8.DATAA
+din[1] => c~5.DATAB
+din[1] => c~5.DATAA
+din[2] => c~2.DATAB
+din[2] => c~2.DATAA
+din[3] => c~4.DATAB
+din[3] => c~4.DATAA
+din[4] => c~1.DATAB
+din[4] => c~1.DATAA
+din[5] => c~3.DATAB
+din[5] => c~3.DATAA
+din[6] => c~0.DATAB
+din[6] => c~0.DATAA
+din[7] => c~2.OUTPUTSELECT
+din[7] => c~1.OUTPUTSELECT
+din[7] => c~0.OUTPUTSELECT
+o[0] <= d[5].DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= c~13.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= c~16.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= d[3].DB_MAX_OUTPUT_PORT_TYPE
+o[4] <= c~15.DB_MAX_OUTPUT_PORT_TYPE
+o[5] <= <GND>
+o[6] <= <GND>
+o[7] <= <GND>
+
+

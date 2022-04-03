@@ -1,0 +1,453 @@
+Classic Timing Analyzer report for CRC
+Tue May 11 17:35:05 2021
+Quartus II Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLK'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                         ;
++------------------------------+-------+---------------+------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                                    ; From                                                       ; To                                                  ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 5.320 ns                                       ; Din[6]                                                     ; USBcon:inst|inst3[6]                                ; --         ; CLK      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 15.162 ns                                      ; USBcon:inst|inst4[1]                                       ; qc                                                  ; CLK        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -0.104 ns                                      ; nTEX                                                       ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low ; --         ; CLK      ; 0            ;
+; Clock Setup: 'CLK'           ; N/A   ; None          ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[4]                                ; CLK        ; CLK      ; 0            ;
+; Total number of failed paths ;       ;               ;                                                ;                                                            ;                                                     ;            ;          ; 0            ;
++------------------------------+-------+---------------+------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C5T144C8        ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLK             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLK'                                                                                                                                                                                                                                                                           ;
++-------+------------------------------------------------+------------------------------------------------------------+------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                                                       ; To                                                         ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+------------------------------------------------------------+------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|inst3[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.621 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.559 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low        ; CLK        ; CLK      ; None                        ; None                      ; 2.359 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low        ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; CLK        ; CLK      ; None                        ; None                      ; 2.381 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.323 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst4[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.323 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.264 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.264 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.263 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.263 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.263 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.262 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.260 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|inst3[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.260 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.073 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.018 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.018 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.017 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.017 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.017 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.016 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.014 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|inst3[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 2.014 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.837 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst4[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.837 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.832 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.832 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.831 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.831 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.831 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.830 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.828 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|inst3[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.828 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low        ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; CLK        ; CLK      ; None                        ; None                      ; 1.791 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low        ; CLK        ; CLK      ; None                        ; None                      ; 1.764 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; CLK        ; CLK      ; None                        ; None                      ; 1.219 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; CLK        ; CLK      ; None                        ; None                      ; 1.214 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[7]                                       ; USBcon:inst|inst4[7]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.208 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[6]                                       ; USBcon:inst|inst4[6]                                       ; CLK        ; CLK      ; None                        ; None                      ; 1.199 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; scan_led3:inst6|counter4:inst2|inst3                       ; CLK        ; CLK      ; None                        ; None                      ; 1.180 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[0]                                       ; USBcon:inst|inst4[0]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.909 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[4]                                       ; USBcon:inst|inst4[4]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.909 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[1]                                       ; USBcon:inst|inst4[1]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.906 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[3]                                       ; USBcon:inst|inst4[3]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.905 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[5]                                       ; USBcon:inst|inst4[5]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.904 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|inst3[2]                                       ; USBcon:inst|inst4[2]                                       ; CLK        ; CLK      ; None                        ; None                      ; 0.903 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; scan_led3:inst6|counter4:inst2|inst3                       ; CLK        ; CLK      ; None                        ; None                      ; 0.780 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; CLK        ; CLK      ; None                        ; None                      ; 0.755 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low        ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low        ; CLK        ; CLK      ; None                        ; None                      ; 0.501 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low        ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low        ; CLK        ; CLK      ; None                        ; None                      ; 0.501 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; CLK        ; CLK      ; None                        ; None                      ; 0.501 ns                ;
+; N/A   ; Restricted to 340.02 MHz ( period = 2.941 ns ) ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; CLK        ; CLK      ; None                        ; None                      ; 0.501 ns                ;
++-------+------------------------------------------------+------------------------------------------------------------+------------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                         ;
++-------+--------------+------------+--------+-----------------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From   ; To                                                  ; To Clock ;
++-------+--------------+------------+--------+-----------------------------------------------------+----------+
+; N/A   ; None         ; 5.320 ns   ; Din[6] ; USBcon:inst|inst3[6]                                ; CLK      ;
+; N/A   ; None         ; 5.200 ns   ; Din[2] ; USBcon:inst|inst3[2]                                ; CLK      ;
+; N/A   ; None         ; 5.165 ns   ; Din[3] ; USBcon:inst|inst3[3]                                ; CLK      ;
+; N/A   ; None         ; 5.112 ns   ; Din[7] ; USBcon:inst|inst3[7]                                ; CLK      ;
+; N/A   ; None         ; 4.880 ns   ; Din[4] ; USBcon:inst|inst3[4]                                ; CLK      ;
+; N/A   ; None         ; 4.678 ns   ; Din[1] ; USBcon:inst|inst3[1]                                ; CLK      ;
+; N/A   ; None         ; 4.625 ns   ; Din[5] ; USBcon:inst|inst3[5]                                ; CLK      ;
+; N/A   ; None         ; 4.564 ns   ; Din[0] ; USBcon:inst|inst3[0]                                ; CLK      ;
+; N/A   ; None         ; 0.790 ns   ; nRxf   ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low ; CLK      ;
+; N/A   ; None         ; 0.559 ns   ; nRxf   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low   ; CLK      ;
+; N/A   ; None         ; 0.371 ns   ; nTEX   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high   ; CLK      ;
+; N/A   ; None         ; 0.370 ns   ; nTEX   ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low ; CLK      ;
++-------+--------------+------------+--------+-----------------------------------------------------+----------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                  ;
++-------+--------------+------------+------------------------------------------------------------+--------+------------+
+; Slack ; Required tco ; Actual tco ; From                                                       ; To     ; From Clock ;
++-------+--------------+------------+------------------------------------------------------------+--------+------------+
+; N/A   ; None         ; 15.162 ns  ; USBcon:inst|inst4[1]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 15.160 ns  ; USBcon:inst|inst4[1]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 14.996 ns  ; USBcon:inst|inst4[1]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 14.321 ns  ; USBcon:inst|inst4[4]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 14.319 ns  ; USBcon:inst|inst4[4]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 14.189 ns  ; USBcon:inst|inst4[1]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 14.155 ns  ; USBcon:inst|inst4[4]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 14.152 ns  ; USBcon:inst|inst4[6]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 14.152 ns  ; USBcon:inst|inst4[6]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 14.140 ns  ; USBcon:inst|inst4[3]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 14.138 ns  ; USBcon:inst|inst4[3]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 14.070 ns  ; USBcon:inst|inst4[2]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 14.068 ns  ; USBcon:inst|inst4[2]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 13.974 ns  ; USBcon:inst|inst4[3]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.969 ns  ; USBcon:inst|inst4[7]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 13.967 ns  ; USBcon:inst|inst4[7]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 13.953 ns  ; USBcon:inst|inst4[6]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.904 ns  ; USBcon:inst|inst4[2]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.829 ns  ; USBcon:inst|inst4[1]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 13.806 ns  ; USBcon:inst|inst4[1]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 13.803 ns  ; USBcon:inst|inst4[7]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.599 ns  ; USBcon:inst|inst4[0]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 13.597 ns  ; USBcon:inst|inst4[0]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 13.490 ns  ; USBcon:inst|inst4[5]                                       ; qc     ; CLK        ;
+; N/A   ; None         ; 13.490 ns  ; USBcon:inst|inst4[5]                                       ; qa     ; CLK        ;
+; N/A   ; None         ; 13.433 ns  ; USBcon:inst|inst4[0]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.348 ns  ; USBcon:inst|inst4[4]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 13.291 ns  ; USBcon:inst|inst4[5]                                       ; qg     ; CLK        ;
+; N/A   ; None         ; 13.291 ns  ; USBcon:inst|inst4[1]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 13.214 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qc     ; CLK        ;
+; N/A   ; None         ; 13.210 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qa     ; CLK        ;
+; N/A   ; None         ; 13.180 ns  ; USBcon:inst|inst4[6]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 13.167 ns  ; USBcon:inst|inst4[3]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 13.097 ns  ; USBcon:inst|inst4[2]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 13.013 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qg     ; CLK        ;
+; N/A   ; None         ; 12.996 ns  ; USBcon:inst|inst4[7]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 12.988 ns  ; USBcon:inst|inst4[4]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.965 ns  ; USBcon:inst|inst4[4]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.863 ns  ; USBcon:inst|inst4[6]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.828 ns  ; USBcon:inst|inst4[6]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.807 ns  ; USBcon:inst|inst4[3]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.784 ns  ; USBcon:inst|inst4[3]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.737 ns  ; USBcon:inst|inst4[2]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.714 ns  ; USBcon:inst|inst4[2]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.636 ns  ; USBcon:inst|inst4[7]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.628 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qc     ; CLK        ;
+; N/A   ; None         ; 12.626 ns  ; USBcon:inst|inst4[0]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 12.624 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qa     ; CLK        ;
+; N/A   ; None         ; 12.613 ns  ; USBcon:inst|inst4[7]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.518 ns  ; USBcon:inst|inst4[5]                                       ; qb     ; CLK        ;
+; N/A   ; None         ; 12.450 ns  ; USBcon:inst|inst4[4]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 12.427 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qg     ; CLK        ;
+; N/A   ; None         ; 12.269 ns  ; USBcon:inst|inst4[3]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 12.266 ns  ; USBcon:inst|inst4[0]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.253 ns  ; USBcon:inst|inst4[6]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 12.243 ns  ; USBcon:inst|inst4[0]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.241 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qb     ; CLK        ;
+; N/A   ; None         ; 12.201 ns  ; USBcon:inst|inst4[5]                                       ; qe     ; CLK        ;
+; N/A   ; None         ; 12.199 ns  ; USBcon:inst|inst4[2]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 12.166 ns  ; USBcon:inst|inst4[5]                                       ; qd     ; CLK        ;
+; N/A   ; None         ; 12.098 ns  ; USBcon:inst|inst4[7]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 11.728 ns  ; USBcon:inst|inst4[0]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 11.688 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qe     ; CLK        ;
+; N/A   ; None         ; 11.672 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qd     ; CLK        ;
+; N/A   ; None         ; 11.655 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qb     ; CLK        ;
+; N/A   ; None         ; 11.591 ns  ; USBcon:inst|inst4[5]                                       ; qf     ; CLK        ;
+; N/A   ; None         ; 11.315 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; qf     ; CLK        ;
+; N/A   ; None         ; 11.295 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qe     ; CLK        ;
+; N/A   ; None         ; 11.260 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qd     ; CLK        ;
+; N/A   ; None         ; 10.756 ns  ; USBcon:inst|inst4[1]                                       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 10.729 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; qf     ; CLK        ;
+; N/A   ; None         ; 10.430 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; bsg[1] ; CLK        ;
+; N/A   ; None         ; 10.410 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; bsg[1] ; CLK        ;
+; N/A   ; None         ; 10.395 ns  ; USBcon:inst|inst4[1]                                       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 10.377 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; bsg[2] ; CLK        ;
+; N/A   ; None         ; 10.372 ns  ; USBcon:inst|inst4[6]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 10.246 ns  ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|9     ; bsg[2] ; CLK        ;
+; N/A   ; None         ; 10.100 ns  ; USBcon:inst|inst4[1]                                       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 9.999 ns   ; USBcon:inst|inst4[6]                                       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 9.986 ns   ; USBcon:inst|inst4[4]                                       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.786 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[7] ; CLK        ;
+; N/A   ; None         ; 9.779 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.735 ns   ; USBcon:inst|inst4[2]                                       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.733 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[7] ; CLK        ;
+; N/A   ; None         ; 9.726 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.710 ns   ; USBcon:inst|inst4[5]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.625 ns   ; USBcon:inst|inst4[4]                                       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 9.613 ns   ; scan_led3:inst6|counter4:inst2|74161:inst|f74161:sub|87    ; bsg[0] ; CLK        ;
+; N/A   ; None         ; 9.525 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.487 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[7] ; CLK        ;
+; N/A   ; None         ; 9.480 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.472 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.462 ns   ; USBcon:inst|inst4[7]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.374 ns   ; USBcon:inst|inst4[2]                                       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 9.337 ns   ; USBcon:inst|inst4[5]                                       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 9.317 ns   ; USBcon:inst|inst4[7]                                       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 9.301 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[7] ; CLK        ;
+; N/A   ; None         ; 9.294 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[0] ; CLK        ;
+; N/A   ; None         ; 9.244 ns   ; USBcon:inst|inst4[3]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.226 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.219 ns   ; USBcon:inst|inst4[6]                                       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 9.078 ns   ; USBcon:inst|inst4[3]                                       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 9.078 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[6] ; CLK        ;
+; N/A   ; None         ; 9.040 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[2] ; CLK        ;
+; N/A   ; None         ; 9.025 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[6] ; CLK        ;
+; N/A   ; None         ; 9.017 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; WR0    ; CLK        ;
+; N/A   ; None         ; 9.001 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[5] ; CLK        ;
+; N/A   ; None         ; 8.997 ns   ; USBcon:inst|inst4[1]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 8.948 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[5] ; CLK        ;
+; N/A   ; None         ; 8.907 ns   ; USBcon:inst|inst4[7]                                       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.897 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.897 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[3] ; CLK        ;
+; N/A   ; None         ; 8.889 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; RD0    ; CLK        ;
+; N/A   ; None         ; 8.871 ns   ; USBcon:inst|inst4[3]                                       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 8.844 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.844 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[3] ; CLK        ;
+; N/A   ; None         ; 8.779 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[6] ; CLK        ;
+; N/A   ; None         ; 8.702 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[5] ; CLK        ;
+; N/A   ; None         ; 8.624 ns   ; USBcon:inst|inst4[1]                                       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 8.598 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.598 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[3] ; CLK        ;
+; N/A   ; None         ; 8.593 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[6] ; CLK        ;
+; N/A   ; None         ; 8.590 ns   ; USBcon:inst|inst4[0]                                       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 8.537 ns   ; USBcon:inst|inst4[0]                                       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.531 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; WR0    ; CLK        ;
+; N/A   ; None         ; 8.527 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; RD0    ; CLK        ;
+; N/A   ; None         ; 8.516 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[5] ; CLK        ;
+; N/A   ; None         ; 8.413 ns   ; USBcon:inst|inst4[0]                                       ; Din[2] ; CLK        ;
+; N/A   ; None         ; 8.412 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[4] ; CLK        ;
+; N/A   ; None         ; 8.412 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[3] ; CLK        ;
+; N/A   ; None         ; 8.331 ns   ; USBcon:inst|inst4[5]                                       ; Din[0] ; CLK        ;
+; N/A   ; None         ; 8.317 ns   ; USBcon:inst|usbconnection:inst|fstate.latch_data_from_host ; Din[1] ; CLK        ;
+; N/A   ; None         ; 8.264 ns   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low          ; Din[1] ; CLK        ;
+; N/A   ; None         ; 8.018 ns   ; USBcon:inst|usbconnection:inst|fstate.send_data_host       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 7.871 ns   ; USBcon:inst|inst4[2]                                       ; Din[1] ; CLK        ;
+; N/A   ; None         ; 7.855 ns   ; USBcon:inst|inst4[4]                                       ; Din[4] ; CLK        ;
+; N/A   ; None         ; 7.832 ns   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high          ; Din[1] ; CLK        ;
++-------+--------------+------------+------------------------------------------------------------+--------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                ;
++---------------+-------------+-----------+--------+-----------------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From   ; To                                                  ; To Clock ;
++---------------+-------------+-----------+--------+-----------------------------------------------------+----------+
+; N/A           ; None        ; -0.104 ns ; nTEX   ; USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low ; CLK      ;
+; N/A           ; None        ; -0.105 ns ; nTEX   ; USBcon:inst|usbconnection:inst|fstate.set_wr_high   ; CLK      ;
+; N/A           ; None        ; -0.293 ns ; nRxf   ; USBcon:inst|usbconnection:inst|fstate.set_nrd_low   ; CLK      ;
+; N/A           ; None        ; -0.524 ns ; nRxf   ; USBcon:inst|usbconnection:inst|fstate.wait_nrxf_low ; CLK      ;
+; N/A           ; None        ; -4.298 ns ; Din[0] ; USBcon:inst|inst3[0]                                ; CLK      ;
+; N/A           ; None        ; -4.359 ns ; Din[5] ; USBcon:inst|inst3[5]                                ; CLK      ;
+; N/A           ; None        ; -4.412 ns ; Din[1] ; USBcon:inst|inst3[1]                                ; CLK      ;
+; N/A           ; None        ; -4.614 ns ; Din[4] ; USBcon:inst|inst3[4]                                ; CLK      ;
+; N/A           ; None        ; -4.846 ns ; Din[7] ; USBcon:inst|inst3[7]                                ; CLK      ;
+; N/A           ; None        ; -4.899 ns ; Din[3] ; USBcon:inst|inst3[3]                                ; CLK      ;
+; N/A           ; None        ; -4.934 ns ; Din[2] ; USBcon:inst|inst3[2]                                ; CLK      ;
+; N/A           ; None        ; -5.054 ns ; Din[6] ; USBcon:inst|inst3[6]                                ; CLK      ;
++---------------+-------------+-----------+--------+-----------------------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue May 11 17:35:04 2021
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off CRC -c CRC --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLK" is an undefined clock
+Info: Clock "CLK" Internal fmax is restricted to 340.02 MHz between source register "USBcon:inst|usbconnection:inst|fstate.latch_data_from_host" and destination register "USBcon:inst|inst3[2]"
+    Info: fmax restricted to clock pin edge rate 2.941 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 2.621 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X20_Y4_N17; Fanout = 3; REG Node = 'USBcon:inst|usbconnection:inst|fstate.latch_data_from_host'
+            Info: 2: + IC(0.486 ns) + CELL(0.651 ns) = 1.137 ns; Loc. = LCCOMB_X20_Y4_N2; Fanout = 9; COMB Node = 'USBcon:inst|usbconnection:inst|nrd~0'
+            Info: 3: + IC(0.629 ns) + CELL(0.855 ns) = 2.621 ns; Loc. = LCFF_X21_Y4_N25; Fanout = 1; REG Node = 'USBcon:inst|inst3[2]'
+            Info: Total cell delay = 1.506 ns ( 57.46 % )
+            Info: Total interconnect delay = 1.115 ns ( 42.54 % )
+        Info: - Smallest clock skew is 0.001 ns
+            Info: + Shortest clock path from clock "CLK" to destination register is 2.748 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 1; CLK Node = 'CLK'
+                Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 25; COMB Node = 'CLK~clkctrl'
+                Info: 3: + IC(0.839 ns) + CELL(0.666 ns) = 2.748 ns; Loc. = LCFF_X21_Y4_N25; Fanout = 1; REG Node = 'USBcon:inst|inst3[2]'
+                Info: Total cell delay = 1.766 ns ( 64.26 % )
+                Info: Total interconnect delay = 0.982 ns ( 35.74 % )
+            Info: - Longest clock path from clock "CLK" to source register is 2.747 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 1; CLK Node = 'CLK'
+                Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 25; COMB Node = 'CLK~clkctrl'
+                Info: 3: + IC(0.838 ns) + CELL(0.666 ns) = 2.747 ns; Loc. = LCFF_X20_Y4_N17; Fanout = 3; REG Node = 'USBcon:inst|usbconnection:inst|fstate.latch_data_from_host'
+                Info: Total cell delay = 1.766 ns ( 64.29 % )
+                Info: Total interconnect delay = 0.981 ns ( 35.71 % )
+        Info: + Micro clock to output delay of source is 0.304 ns
+        Info: + Micro setup delay of destination is -0.040 ns
+Info: tsu for register "USBcon:inst|inst3[6]" (data pin = "Din[6]", clock pin = "CLK") is 5.320 ns
+    Info: + Longest pin to register delay is 8.108 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_59; Fanout = 1; PIN Node = 'Din[6]'
+        Info: 2: + IC(0.000 ns) + CELL(0.944 ns) = 0.944 ns; Loc. = IOC_X14_Y0_N1; Fanout = 1; COMB Node = 'Din~1'
+        Info: 3: + IC(6.432 ns) + CELL(0.624 ns) = 8.000 ns; Loc. = LCCOMB_X21_Y4_N12; Fanout = 1; COMB Node = 'inst1[6]~4'
+        Info: 4: + IC(0.000 ns) + CELL(0.108 ns) = 8.108 ns; Loc. = LCFF_X21_Y4_N13; Fanout = 1; REG Node = 'USBcon:inst|inst3[6]'
+        Info: Total cell delay = 1.676 ns ( 20.67 % )
+        Info: Total interconnect delay = 6.432 ns ( 79.33 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "CLK" to destination register is 2.748 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 25; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(0.839 ns) + CELL(0.666 ns) = 2.748 ns; Loc. = LCFF_X21_Y4_N13; Fanout = 1; REG Node = 'USBcon:inst|inst3[6]'
+        Info: Total cell delay = 1.766 ns ( 64.26 % )
+        Info: Total interconnect delay = 0.982 ns ( 35.74 % )
+Info: tco from clock "CLK" to destination pin "qc" through register "USBcon:inst|inst4[1]" is 15.162 ns
+    Info: + Longest clock path from clock "CLK" to source register is 2.748 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 25; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(0.839 ns) + CELL(0.666 ns) = 2.748 ns; Loc. = LCFF_X21_Y4_N29; Fanout = 3; REG Node = 'USBcon:inst|inst4[1]'
+        Info: Total cell delay = 1.766 ns ( 64.26 % )
+        Info: Total interconnect delay = 0.982 ns ( 35.74 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 12.110 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y4_N29; Fanout = 3; REG Node = 'USBcon:inst|inst4[1]'
+        Info: 2: + IC(0.768 ns) + CELL(0.647 ns) = 1.415 ns; Loc. = LCCOMB_X21_Y4_N30; Fanout = 1; COMB Node = 'road_sel:inst8|o[1]~1'
+        Info: 3: + IC(1.017 ns) + CELL(0.206 ns) = 2.638 ns; Loc. = LCCOMB_X21_Y4_N0; Fanout = 2; COMB Node = 'road_sel:inst8|o[4]~2'
+        Info: 4: + IC(0.681 ns) + CELL(0.624 ns) = 3.943 ns; Loc. = LCCOMB_X20_Y4_N24; Fanout = 7; COMB Node = 'scan_led3:inst6|mux4_3_1:inst|dout[0]~13'
+        Info: 5: + IC(1.508 ns) + CELL(0.370 ns) = 5.821 ns; Loc. = LCCOMB_X24_Y7_N4; Fanout = 1; COMB Node = 'scan_led3:inst6|7449:inst3|31'
+        Info: 6: + IC(3.233 ns) + CELL(3.056 ns) = 12.110 ns; Loc. = PIN_24; Fanout = 0; PIN Node = 'qc'
+        Info: Total cell delay = 4.903 ns ( 40.49 % )
+        Info: Total interconnect delay = 7.207 ns ( 59.51 % )
+Info: th for register "USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low" (data pin = "nTEX", clock pin = "CLK") is -0.104 ns
+    Info: + Longest clock path from clock "CLK" to destination register is 2.735 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 1; CLK Node = 'CLK'
+        Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 25; COMB Node = 'CLK~clkctrl'
+        Info: 3: + IC(0.826 ns) + CELL(0.666 ns) = 2.735 ns; Loc. = LCFF_X2_Y4_N1; Fanout = 2; REG Node = 'USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low'
+        Info: Total cell delay = 1.766 ns ( 64.57 % )
+        Info: Total interconnect delay = 0.969 ns ( 35.43 % )
+    Info: + Micro hold delay of destination is 0.306 ns
+    Info: - Shortest pin to register delay is 3.145 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_21; Fanout = 2; PIN Node = 'nTEX'
+        Info: 2: + IC(1.313 ns) + CELL(0.624 ns) = 3.037 ns; Loc. = LCCOMB_X2_Y4_N0; Fanout = 1; COMB Node = 'USBcon:inst|usbconnection:inst|Selector1~1'
+        Info: 3: + IC(0.000 ns) + CELL(0.108 ns) = 3.145 ns; Loc. = LCFF_X2_Y4_N1; Fanout = 2; REG Node = 'USBcon:inst|usbconnection:inst|fstate.wait_ntxe_low'
+        Info: Total cell delay = 1.832 ns ( 58.25 % )
+        Info: Total interconnect delay = 1.313 ns ( 41.75 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 190 megabytes
+    Info: Processing ended: Tue May 11 17:35:05 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

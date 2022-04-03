@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="dc">
+		<CBX_INST_ENTRY INSTANCE_NAME="|dc|cal:inst2|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_muo.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|dc|cal:inst2|lpm_mult:Mult0" CBX_FILE_NAME="mult_ks01.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

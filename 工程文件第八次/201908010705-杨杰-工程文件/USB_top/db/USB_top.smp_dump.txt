@@ -1,0 +1,9 @@
+
+State Machine - |USB_top|USBcon:inst|usbconnection:inst|fstate
+Name fstate.send_data_host fstate.latch_data_from_host fstate.set_nrd_low fstate.wait_ntxe_low fstate.set_wr_high fstate.wait_nrxf_low 
+fstate.wait_nrxf_low 0 0 0 0 0 0 
+fstate.set_wr_high 0 0 0 0 1 1 
+fstate.wait_ntxe_low 0 0 0 1 0 1 
+fstate.set_nrd_low 0 0 1 0 0 1 
+fstate.latch_data_from_host 0 1 0 0 0 1 
+fstate.send_data_host 1 0 0 0 0 1 

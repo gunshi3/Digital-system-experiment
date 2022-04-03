@@ -1,0 +1,14 @@
+|exp_detect3
+din => Selector3.IN1
+din => Selector2.IN4
+din => Selector4.IN1
+din => Selector5.IN1
+din => Selector0.IN0
+din => z~0.DATAB
+din => Selector6.IN0
+din => Selector2.IN1
+din => Selector1.IN1
+din => Selector1.IN2
+z <= z~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

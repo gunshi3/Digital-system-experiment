@@ -1,0 +1,95 @@
+|test
+rd <= usedownload:inst.rd
+clk => usedownload:inst.clock
+clk => D:inst4.clock
+Rxf => usedownload:inst.RxF
+dout[0] <= D:inst4.q[0]
+dout[1] <= D:inst4.q[1]
+dout[2] <= D:inst4.q[2]
+dout[3] <= D:inst4.q[3]
+dout[4] <= D:inst4.q[4]
+dout[5] <= D:inst4.q[5]
+dout[6] <= D:inst4.q[6]
+dout[7] <= D:inst4.q[7]
+D[0] => D:inst4.data[0]
+D[1] => D:inst4.data[1]
+D[2] => D:inst4.data[2]
+D[3] => D:inst4.data[3]
+D[4] => D:inst4.data[4]
+D[5] => D:inst4.data[5]
+D[6] => D:inst4.data[6]
+D[7] => D:inst4.data[7]
+
+
+|test|usedownload:inst
+reset => rd~0.OUTPUTSELECT
+reset => reg_fstate.set_rd_low.OUTPUTSELECT
+reset => reg_fstate.latch_data_from_host.OUTPUTSELECT
+reset => reg_fstate.wait_rxf_low.OUTPUTSELECT
+RxF => Selector0.IN2
+RxF => reg_fstate~0.DATAB
+rd <= rd~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|test|D:inst4
+clock => lpm_ff:lpm_ff_component.clock
+data[0] => lpm_ff:lpm_ff_component.data[0]
+data[1] => lpm_ff:lpm_ff_component.data[1]
+data[2] => lpm_ff:lpm_ff_component.data[2]
+data[3] => lpm_ff:lpm_ff_component.data[3]
+data[4] => lpm_ff:lpm_ff_component.data[4]
+data[5] => lpm_ff:lpm_ff_component.data[5]
+data[6] => lpm_ff:lpm_ff_component.data[6]
+data[7] => lpm_ff:lpm_ff_component.data[7]
+enable => lpm_ff:lpm_ff_component.enable
+q[0] <= lpm_ff:lpm_ff_component.q[0]
+q[1] <= lpm_ff:lpm_ff_component.q[1]
+q[2] <= lpm_ff:lpm_ff_component.q[2]
+q[3] <= lpm_ff:lpm_ff_component.q[3]
+q[4] <= lpm_ff:lpm_ff_component.q[4]
+q[5] <= lpm_ff:lpm_ff_component.q[5]
+q[6] <= lpm_ff:lpm_ff_component.q[6]
+q[7] <= lpm_ff:lpm_ff_component.q[7]
+
+
+|test|D:inst4|lpm_ff:lpm_ff_component
+data[0] => dffs[0].DATAIN
+data[1] => dffs[1].DATAIN
+data[2] => dffs[2].DATAIN
+data[3] => dffs[3].DATAIN
+data[4] => dffs[4].DATAIN
+data[5] => dffs[5].DATAIN
+data[6] => dffs[6].DATAIN
+data[7] => dffs[7].DATAIN
+clock => dffs[7].CLK
+clock => dffs[6].CLK
+clock => dffs[5].CLK
+clock => dffs[4].CLK
+clock => dffs[3].CLK
+clock => dffs[2].CLK
+clock => dffs[1].CLK
+clock => dffs[0].CLK
+enable => dffs[7].ENA
+enable => dffs[6].ENA
+enable => dffs[5].ENA
+enable => dffs[4].ENA
+enable => dffs[3].ENA
+enable => dffs[2].ENA
+enable => dffs[1].ENA
+enable => dffs[0].ENA
+aclr => ~NO_FANOUT~
+aset => ~NO_FANOUT~
+aload => ~NO_FANOUT~
+sclr => ~NO_FANOUT~
+sset => ~NO_FANOUT~
+sload => ~NO_FANOUT~
+q[0] <= dffs[0].DB_MAX_OUTPUT_PORT_TYPE
+q[1] <= dffs[1].DB_MAX_OUTPUT_PORT_TYPE
+q[2] <= dffs[2].DB_MAX_OUTPUT_PORT_TYPE
+q[3] <= dffs[3].DB_MAX_OUTPUT_PORT_TYPE
+q[4] <= dffs[4].DB_MAX_OUTPUT_PORT_TYPE
+q[5] <= dffs[5].DB_MAX_OUTPUT_PORT_TYPE
+q[6] <= dffs[6].DB_MAX_OUTPUT_PORT_TYPE
+q[7] <= dffs[7].DB_MAX_OUTPUT_PORT_TYPE
+
+

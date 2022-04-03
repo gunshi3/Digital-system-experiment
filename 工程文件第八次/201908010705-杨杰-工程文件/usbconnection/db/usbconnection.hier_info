@@ -1,0 +1,57 @@
+|USBcon
+nrd <= usbconnection:inst.nrd
+CLK => usbconnection:inst.clock
+CLK => inst3[7].CLK
+CLK => inst3[6].CLK
+CLK => inst3[5].CLK
+CLK => inst3[4].CLK
+CLK => inst3[3].CLK
+CLK => inst3[2].CLK
+CLK => inst3[1].CLK
+CLK => inst3[0].CLK
+CLK => inst4[7].CLK
+CLK => inst4[6].CLK
+CLK => inst4[5].CLK
+CLK => inst4[4].CLK
+CLK => inst4[3].CLK
+CLK => inst4[2].CLK
+CLK => inst4[1].CLK
+CLK => inst4[0].CLK
+nRxf => usbconnection:inst.nrxf
+nTEX => usbconnection:inst.ntxe
+wr <= usbconnection:inst.wr
+dout[0] <= inst4[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= inst4[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= inst4[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= inst4[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= inst4[4].DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= inst4[5].DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= inst4[6].DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= inst4[7].DB_MAX_OUTPUT_PORT_TYPE
+Din[0] => inst3[0].DATAIN
+Din[1] => inst3[1].DATAIN
+Din[2] => inst3[2].DATAIN
+Din[3] => inst3[3].DATAIN
+Din[4] => inst3[4].DATAIN
+Din[5] => inst3[5].DATAIN
+Din[6] => inst3[6].DATAIN
+Din[7] => inst3[7].DATAIN
+
+
+|USBcon|usbconnection:inst
+reset => wr~1.OUTPUTSELECT
+reset => nrd~1.OUTPUTSELECT
+reset => reg_fstate.send_data_host.OUTPUTSELECT
+reset => reg_fstate.latch_data_from_host.OUTPUTSELECT
+reset => reg_fstate.set_nrd_low.OUTPUTSELECT
+reset => reg_fstate.wait_ntxe_low.OUTPUTSELECT
+reset => reg_fstate.set_wr_high.OUTPUTSELECT
+reset => reg_fstate.wait_nrxf_low.OUTPUTSELECT
+nrxf => Selector0.IN3
+nrxf => reg_fstate~1.DATAB
+ntxe => Selector1.IN3
+ntxe => reg_fstate~0.DATAB
+nrd <= nrd~1.DB_MAX_OUTPUT_PORT_TYPE
+wr <= wr~1.DB_MAX_OUTPUT_PORT_TYPE
+
+

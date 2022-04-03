@@ -1,0 +1,237 @@
+library ieee;   
+use ieee.std_logic_1164.all;  
+use ieee.std_logic_arith.all; 
+use ieee.std_logic_unsigned.all;  
+entity iicInterface is   
+port(
+		reset,clk,EN:in std_logic;
+		dAddress:in std_logic_vector(2 downto 0);
+		wAddress:in std_logic_vector(7 downto 0);
+		sda,scl:inout std_logic;
+		data:out std_logic_vector(7 downto 0));  
+end iicInterface;   
+architecture Behavioral of iicInterface is 
+signal sdaTemp:std_logic:='1';
+signal sclTemp:std_logic:='1';
+signal dataTemp:std_logic_vector(7 downto 0):="00000000";
+type state is (
+				idle,                   		--闲置状态  
+				start,                  		--开始
+				first_device_addr,       		--存储器地址接收状态    
+				ack_for_first_device_addr,    	--响应存储器地址状态    
+				word_addr,          			--字地址状态
+				ack_for_word_addr,      		--响应字地址状态
+				second_device_addr,            	--再次接收存储器地址状态 
+				ack_for_second_device_addr,    	--响应再次接收存储器地址状态       
+				read_data,             			--读状态
+				ack_for_read_data,     			--响应读状态
+				stop);  						--停止状态
+signal current_state:state;            			--当前状态
+
+begin    
+
+sda<=sdaTemp;
+scl<=sclTemp;
+
+process(clk,reset)   
+variable count:integer range 0 to 40;  
+begin   
+if reset='0'then                        		--闲置状态
+	sdaTemp<='1';                           
+	sclTemp<='1';
+	current_state<=idle;
+	count:=0;  
+elsif clk'event and clk='1' then        		--时钟上升沿
+	case current_state is               		--开始状态
+		when idle=>
+			if(EN='1')then          			
+				current_state<=start;   
+			else
+				current_state<=idle;
+			end if;
+		
+		when start=>							--开始状态sdaTemp拉到低电平	
+			sdaTemp<='0';
+			count:=0;							
+			current_state<=first_device_addr;
+		
+		when first_device_addr=>           		--存储器地址接收状态 
+			count:=count+1;             
+			case count is               
+				when 1=>						--AT24C系列EEPROM芯片的固定部分为1010
+					sdaTemp<='1';
+					sclTemp<=not sclTemp;
+				when 2=>
+					sdaTemp<='0';
+					sclTemp<=not sclTemp; 
+				when 3=>
+					sdaTemp<='1';
+					sclTemp<=not sclTemp;  
+				when 4=>
+					sdaTemp<='0';
+					sclTemp<=not sclTemp;  
+				when 5=>
+					sdaTemp<=dAddress(2);
+					sclTemp<=not sclTemp;  
+				when 6=>
+					sdaTemp<=dAddress(1);
+					sclTemp<=not sclTemp; 
+				when 7=>
+					sdaTemp<=dAddress(0);
+					sclTemp<=not sclTemp;  
+				when 8=>
+					sdaTemp<='0';
+					sclTemp<=not sclTemp;				--读写方向为0，伪写
+					current_state<=ack_for_first_device_addr;
+					count:=0;
+				when others=>					--等待响应	
+					sdaTemp<='Z';
+					sclTemp<='Z';
+					current_state<=ack_for_first_device_addr;
+					count:=0;
+				end case;
+		
+		when ack_for_first_device_addr=>		--响应存储器地址状态
+			sdaTemp<='Z';
+			sclTemp<='Z';
+			if sda='0' then 
+				sclTemp<=not sclTemp;
+				current_state<=word_addr;
+			end if;
+
+		when word_addr=>                    	--字地址状态
+			count:=count+1; 					
+			case count is   
+				when 1=>                           
+					sdaTemp<=wAddress(7); 
+					sclTemp<=not sclTemp;    
+				when 2=>                            
+					sdaTemp<=wAddress(6);
+					sclTemp<=not sclTemp;                           
+				when 3=>                            
+					sdaTemp<=wAddress(5);
+					sclTemp<=not sclTemp;  
+				when 4=>                            
+					sdaTemp<=wAddress(4);
+					sclTemp<=not sclTemp;     
+				when 5=>                            
+					sdaTemp<=wAddress(3);
+					sclTemp<=not sclTemp; 
+				when 6=>                            
+					sdaTemp<=wAddress(2);
+					sclTemp<=not sclTemp;  
+				when 7=>                            
+					sdaTemp<=wAddress(1);
+					sclTemp<=not sclTemp;     
+				when 8=>                            
+					sdaTemp<=wAddress(0);
+					sclTemp<=not sclTemp;
+					current_state<=ack_for_word_addr;
+					count:=0;
+				when others=>
+					sdaTemp<='Z';
+					sclTemp<='Z';
+					current_state<=ack_for_word_addr;
+					count:=0;
+			end case;
+
+		when ack_for_word_addr=>				 --响应字地址 
+		sdaTemp<='Z';
+		sclTemp<='Z';
+		if sda='0' then current_state<=second_device_addr;
+			if sclTemp/='Z' then sclTemp<=not sclTemp;
+			end if;
+		end if;	
+	
+		when second_device_addr=>           	--再次接收存储器地址状态 
+			count:=count+1;             
+			case count is               
+				when 1=>						--AT24C系列EEPROM芯片的固定部分为1010
+					sdaTemp<='1';
+					sclTemp<=not sclTemp;  
+				when 2=>
+					sdaTemp<='0';
+					sclTemp<=not sclTemp; 
+				when 3=>
+					sdaTemp<='1';
+					sclTemp<=not sclTemp;  
+				when 4=>
+					sdaTemp<='0';
+					sclTemp<=not sclTemp;  
+				when 5=>
+					sdaTemp<=dAddress(2);
+					sclTemp<=not sclTemp;  
+				when 6=>
+					sdaTemp<=dAddress(1);
+					sclTemp<=not sclTemp; 
+				when 7=>
+					sdaTemp<=dAddress(0);
+					sclTemp<=not sclTemp;  
+				when 8=>
+					sdaTemp<='1';					--读写方向为1
+					sclTemp<=not sclTemp;
+					current_state<=ack_for_second_device_addr;
+					count:=0;
+				when others=>
+					sdaTemp<='Z';
+					sclTemp<='Z';
+					current_state<=ack_for_second_device_addr;
+					count:=0;
+				end case;
+		
+		when ack_for_second_device_addr=>		--响应再次接收存储器地址状态 
+			sdaTemp<='Z';
+			sclTemp<='Z';
+			if sda='0' then current_state<=read_data;
+				if sclTemp/='Z' then sclTemp<=not sclTemp;
+				end if;
+			end if;
+		when read_data=>
+			count:=count+1;  
+			case count is 
+				when 1=>                            
+					dataTemp(7)<=sda;
+					sclTemp<=not sclTemp;
+				when 2=>                            
+					dataTemp(6)<=sda;
+					sclTemp<=not sclTemp;                           
+				when 3=>                            
+					dataTemp(5)<=sda;
+					sclTemp<=not sclTemp;
+				when 4=>                            
+					dataTemp(4)<=sda;
+					sclTemp<=not sclTemp;     
+				when 5=>                            
+					dataTemp(3)<=sda;
+					sclTemp<=not sclTemp;
+				when 6=>                            
+					dataTemp(2)<=sda;
+					sclTemp<=not sclTemp; 
+				when 7=>                            
+					dataTemp(1)<=sda;
+					sclTemp<=not sclTemp;    
+				when 8=>                            
+					dataTemp(0)<=sda;
+					sclTemp<=not sclTemp;
+					data(7 downto 0)<=dataTemp(7 downto 0);
+					current_state<=ack_for_read_data;
+					count:=0;
+				when others=>
+					sdaTemp<='Z';
+					sclTemp<='Z';
+					current_state<=ack_for_read_data;
+					count:=0;
+		end case;
+		when ack_for_read_data=>						--响应再次接收存储器地址状态 
+			if sda='1' then current_state<=stop;	--高电平表示终止
+			else current_state<=read_data;
+			sclTemp<=not sclTemp;
+			end if;
+		when stop=>
+			current_state<=idle; 
+		when others=>						--最小冒险
+			current_state<=idle; 			
+	end case;  
+end if;   
+end process;  
+end Behavioral; 	

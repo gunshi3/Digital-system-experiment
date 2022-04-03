@@ -1,0 +1,21 @@
+|bhv
+ina[0] => outa[0].DATAIN
+ina[1] => outa[1].DATAIN
+ina[2] => outa[2].DATAIN
+ina[3] => outa[3].DATAIN
+ina[4] => outa[4].DATAIN
+ina[5] => outa[5].DATAIN
+ina[6] => outa[6].DATAIN
+ina[7] => outa[7].DATAIN
+inb => outb.DATAIN
+outa[0] <= ina[0].DB_MAX_OUTPUT_PORT_TYPE
+outa[1] <= ina[1].DB_MAX_OUTPUT_PORT_TYPE
+outa[2] <= ina[2].DB_MAX_OUTPUT_PORT_TYPE
+outa[3] <= ina[3].DB_MAX_OUTPUT_PORT_TYPE
+outa[4] <= ina[4].DB_MAX_OUTPUT_PORT_TYPE
+outa[5] <= ina[5].DB_MAX_OUTPUT_PORT_TYPE
+outa[6] <= ina[6].DB_MAX_OUTPUT_PORT_TYPE
+outa[7] <= ina[7].DB_MAX_OUTPUT_PORT_TYPE
+outb <= inb.DB_MAX_OUTPUT_PORT_TYPE
+
+

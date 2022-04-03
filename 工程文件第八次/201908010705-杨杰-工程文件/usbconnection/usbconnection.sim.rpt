@@ -1,0 +1,337 @@
+Simulator report for usbconnection
+Mon May 10 11:19:28 2021
+Quartus II Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 110 nodes    ;
+; Simulation Coverage         ;      47.46 % ;
+; Total Number of Transitions ; 1218         ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                             ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+; Option                                                                                     ; Setting           ; Default Value ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+; Simulation mode                                                                            ; Functional        ; Timing        ;
+; Start time                                                                                 ; 0 ns              ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF              ;               ;
+; Vector input source                                                                        ; usbconnection.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                ; On            ;
+; Check outputs                                                                              ; Off               ; Off           ;
+; Report simulation coverage                                                                 ; On                ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                ; On            ;
+; Display missing 1-value coverage report                                                    ; On                ; On            ;
+; Display missing 0-value coverage report                                                    ; On                ; On            ;
+; Detect setup and hold time violations                                                      ; Off               ; Off           ;
+; Detect glitches                                                                            ; Off               ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off               ; Off           ;
+; Generate Signal Activity File                                                              ; Off               ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off               ; Off           ;
+; Group bus channels in simulation results                                                   ; Off               ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE        ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off               ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off               ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto              ; Auto          ;
++--------------------------------------------------------------------------------------------+-------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      47.46 % ;
+; Total nodes checked                                 ; 110          ;
+; Total output ports checked                          ; 118          ;
+; Total output ports with complete 1/0-value coverage ; 56           ;
+; Total output ports with no 1/0-value coverage       ; 26           ;
+; Total output ports with no 1-value coverage         ; 36           ;
+; Total output ports with no 0-value coverage         ; 52           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                            ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
+; Node Name                                                        ; Output Port Name                                                 ; Output Port Type ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
+; |Block1|RDo                                                      ; |Block1|RDo                                                      ; pin_out          ;
+; |Block1|CLK                                                      ; |Block1|CLK                                                      ; out              ;
+; |Block1|nRXF                                                     ; |Block1|nRXF                                                     ; out              ;
+; |Block1|nTXE                                                     ; |Block1|nTXE                                                     ; out              ;
+; |Block1|inst                                                     ; |Block1|inst                                                     ; out0             ;
+; |Block1|WRo                                                      ; |Block1|WRo                                                      ; pin_out          ;
+; |Block1|inst4[2]                                                 ; |Block1|inst4[2]                                                 ; out              ;
+; |Block1|inst4[0]                                                 ; |Block1|inst4[0]                                                 ; out              ;
+; |Block1|usbconnection:inst2|nrd~0                                ; |Block1|usbconnection:inst2|nrd~0                                ; out0             ;
+; |Block1|usbconnection:inst2|wr~0                                 ; |Block1|usbconnection:inst2|wr~0                                 ; out0             ;
+; |Block1|usbconnection:inst2|next_state~0                         ; |Block1|usbconnection:inst2|next_state~0                         ; out              ;
+; |Block1|usbconnection:inst2|next_state~1                         ; |Block1|usbconnection:inst2|next_state~1                         ; out              ;
+; |Block1|usbconnection:inst2|current_state.send_data_host         ; |Block1|usbconnection:inst2|current_state.send_data_host         ; regout           ;
+; |Block1|usbconnection:inst2|c~3                                  ; |Block1|usbconnection:inst2|c~3                                  ; out              ;
+; |Block1|usbconnection:inst2|c~7                                  ; |Block1|usbconnection:inst2|c~7                                  ; out              ;
+; |Block1|usbconnection:inst2|c~8                                  ; |Block1|usbconnection:inst2|c~8                                  ; out              ;
+; |Block1|usbconnection:inst2|c~11                                 ; |Block1|usbconnection:inst2|c~11                                 ; out              ;
+; |Block1|usbconnection:inst2|c~12                                 ; |Block1|usbconnection:inst2|c~12                                 ; out              ;
+; |Block1|usbconnection:inst2|c~13                                 ; |Block1|usbconnection:inst2|c~13                                 ; out              ;
+; |Block1|usbconnection:inst2|d[3]                                 ; |Block1|usbconnection:inst2|d[3]                                 ; out              ;
+; |Block1|usbconnection:inst2|c[4]                                 ; |Block1|usbconnection:inst2|c[4]                                 ; out              ;
+; |Block1|usbconnection:inst2|next_state.send_data_host            ; |Block1|usbconnection:inst2|next_state.send_data_host            ; regout           ;
+; |Block1|usbconnection:inst2|next_state.set_wr_high               ; |Block1|usbconnection:inst2|next_state.set_wr_high               ; regout           ;
+; |Block1|usbconnection:inst2|next_state.wait_ntxe_low             ; |Block1|usbconnection:inst2|next_state.wait_ntxe_low             ; regout           ;
+; |Block1|usbconnection:inst2|next_state.latch_data_from_host      ; |Block1|usbconnection:inst2|next_state.latch_data_from_host      ; regout           ;
+; |Block1|usbconnection:inst2|next_state.set_nrd_low               ; |Block1|usbconnection:inst2|next_state.set_nrd_low               ; regout           ;
+; |Block1|usbconnection:inst2|next_state.wait_nrxf_low             ; |Block1|usbconnection:inst2|next_state.wait_nrxf_low             ; regout           ;
+; |Block1|usbconnection:inst2|wr                                   ; |Block1|usbconnection:inst2|wr                                   ; regout           ;
+; |Block1|usbconnection:inst2|nrd                                  ; |Block1|usbconnection:inst2|nrd                                  ; regout           ;
+; |Block1|usbconnection:inst2|current_state.set_wr_high            ; |Block1|usbconnection:inst2|current_state.set_wr_high            ; regout           ;
+; |Block1|usbconnection:inst2|current_state.wait_ntxe_low          ; |Block1|usbconnection:inst2|current_state.wait_ntxe_low          ; regout           ;
+; |Block1|usbconnection:inst2|current_state.latch_data_from_host   ; |Block1|usbconnection:inst2|current_state.latch_data_from_host   ; regout           ;
+; |Block1|usbconnection:inst2|current_state.set_nrd_low            ; |Block1|usbconnection:inst2|current_state.set_nrd_low            ; regout           ;
+; |Block1|usbconnection:inst2|current_state.wait_nrxf_low          ; |Block1|usbconnection:inst2|current_state.wait_nrxf_low          ; regout           ;
+; |Block1|usbconnection:inst2|next_state~2                         ; |Block1|usbconnection:inst2|next_state~2                         ; out0             ;
+; |Block1|usbconnection:inst2|current_state~0                      ; |Block1|usbconnection:inst2|current_state~0                      ; out0             ;
+; |Block1|usbconnection:inst2|current_state.wait_nrxf_low~0        ; |Block1|usbconnection:inst2|current_state.wait_nrxf_low~0        ; out0             ;
+; |Block1|usbconnection:inst2|next_state.set_nrd_low~0             ; |Block1|usbconnection:inst2|next_state.set_nrd_low~0             ; out0             ;
+; |Block1|usbconnection:inst2|current_state.set_nrd_low~0          ; |Block1|usbconnection:inst2|current_state.set_nrd_low~0          ; out0             ;
+; |Block1|usbconnection:inst2|current_state.latch_data_from_host~0 ; |Block1|usbconnection:inst2|current_state.latch_data_from_host~0 ; out0             ;
+; |Block1|usbconnection:inst2|current_state.wait_ntxe_low~0        ; |Block1|usbconnection:inst2|current_state.wait_ntxe_low~0        ; out0             ;
+; |Block1|usbconnection:inst2|next_state.set_wr_high~0             ; |Block1|usbconnection:inst2|next_state.set_wr_high~0             ; out0             ;
+; |Block1|usbconnection:inst2|current_state.set_wr_high~0          ; |Block1|usbconnection:inst2|current_state.set_wr_high~0          ; out0             ;
+; |Block1|usbconnection:inst2|current_state.send_data_host~0       ; |Block1|usbconnection:inst2|current_state.send_data_host~0       ; out0             ;
+; |Block1|usbconnection:inst2|next_state~7                         ; |Block1|usbconnection:inst2|next_state~7                         ; out0             ;
+; |Block1|usbconnection:inst2|WideOr1~0                            ; |Block1|usbconnection:inst2|WideOr1~0                            ; out0             ;
+; |Block1|usbconnection:inst2|WideOr1~1                            ; |Block1|usbconnection:inst2|WideOr1~1                            ; out0             ;
+; |Block1|usbconnection:inst2|Selector1~0                          ; |Block1|usbconnection:inst2|Selector1~0                          ; out0             ;
+; |Block1|usbconnection:inst2|next_state~8                         ; |Block1|usbconnection:inst2|next_state~8                         ; out0             ;
+; |Block1|usbconnection:inst2|WideOr1~2                            ; |Block1|usbconnection:inst2|WideOr1~2                            ; out0             ;
+; |Block1|usbconnection:inst2|WideOr1~3                            ; |Block1|usbconnection:inst2|WideOr1~3                            ; out0             ;
+; |Block1|usbconnection:inst2|current_state~4                      ; |Block1|usbconnection:inst2|current_state~4                      ; out0             ;
+; |Block1|usbconnection:inst2|Selector0~0                          ; |Block1|usbconnection:inst2|Selector0~0                          ; out0             ;
+; |Block1|usbconnection:inst2|Selector0~1                          ; |Block1|usbconnection:inst2|Selector0~1                          ; out0             ;
+; |Block1|usbconnection:inst2|Selector1~1                          ; |Block1|usbconnection:inst2|Selector1~1                          ; out0             ;
+; |Block1|usbconnection:inst2|Selector1~2                          ; |Block1|usbconnection:inst2|Selector1~2                          ; out0             ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++----------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                     ;
++-------------------------------------+-------------------------------------+------------------+
+; Node Name                           ; Output Port Name                    ; Output Port Type ;
++-------------------------------------+-------------------------------------+------------------+
+; |Block1|inst3[6]                    ; |Block1|inst3[6]                    ; out              ;
+; |Block1|inst3[4]                    ; |Block1|inst3[4]                    ; out              ;
+; |Block1|inst3[3]                    ; |Block1|inst3[3]                    ; out              ;
+; |Block1|inst3[1]                    ; |Block1|inst3[1]                    ; out              ;
+; |Block1|Din[7]                      ; |Block1|Din[7]                      ; out              ;
+; |Block1|Din[6]                      ; |Block1|Din[6]                      ; out              ;
+; |Block1|Din[6]                      ; |Block1|Din[6]~result               ; pin_out          ;
+; |Block1|Din[5]                      ; |Block1|Din[5]                      ; out              ;
+; |Block1|Din[4]                      ; |Block1|Din[4]                      ; out              ;
+; |Block1|Din[4]                      ; |Block1|Din[4]~result               ; pin_out          ;
+; |Block1|Din[3]                      ; |Block1|Din[3]                      ; out              ;
+; |Block1|Din[3]                      ; |Block1|Din[3]~result               ; pin_out          ;
+; |Block1|Din[2]                      ; |Block1|Din[2]                      ; out              ;
+; |Block1|Din[1]                      ; |Block1|Din[1]                      ; out              ;
+; |Block1|Din[1]                      ; |Block1|Din[1]~result               ; pin_out          ;
+; |Block1|Din[0]                      ; |Block1|Din[0]                      ; out              ;
+; |Block1|Din~1                       ; |Block1|Din~1                       ; out0             ;
+; |Block1|Din~3                       ; |Block1|Din~3                       ; out0             ;
+; |Block1|Din~4                       ; |Block1|Din~4                       ; out0             ;
+; |Block1|Din~6                       ; |Block1|Din~6                       ; out0             ;
+; |Block1|inst4[7]                    ; |Block1|inst4[7]                    ; out              ;
+; |Block1|inst4[6]                    ; |Block1|inst4[6]                    ; out              ;
+; |Block1|inst4[5]                    ; |Block1|inst4[5]                    ; out              ;
+; |Block1|inst4[4]                    ; |Block1|inst4[4]                    ; out              ;
+; |Block1|inst4[3]                    ; |Block1|inst4[3]                    ; out              ;
+; |Block1|inst4[1]                    ; |Block1|inst4[1]                    ; out              ;
+; |Block1|usbconnection:inst2|dout[4] ; |Block1|usbconnection:inst2|dout[4] ; regout           ;
+; |Block1|usbconnection:inst2|dout[3] ; |Block1|usbconnection:inst2|dout[3] ; regout           ;
+; |Block1|usbconnection:inst2|c~2     ; |Block1|usbconnection:inst2|c~2     ; out              ;
+; |Block1|usbconnection:inst2|c~9     ; |Block1|usbconnection:inst2|c~9     ; out              ;
+; |Block1|usbconnection:inst2|c~10    ; |Block1|usbconnection:inst2|c~10    ; out              ;
+; |Block1|usbconnection:inst2|dout[1] ; |Block1|usbconnection:inst2|dout[1] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[1] ; |Block1|usbconnection:inst2|a_in[1] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[3] ; |Block1|usbconnection:inst2|a_in[3] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[4] ; |Block1|usbconnection:inst2|a_in[4] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[6] ; |Block1|usbconnection:inst2|a_in[6] ; regout           ;
++-------------------------------------+-------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++----------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                     ;
++-------------------------------------+-------------------------------------+------------------+
+; Node Name                           ; Output Port Name                    ; Output Port Type ;
++-------------------------------------+-------------------------------------+------------------+
+; |Block1|inst3[7]                    ; |Block1|inst3[7]                    ; out              ;
+; |Block1|inst3[5]                    ; |Block1|inst3[5]                    ; out              ;
+; |Block1|inst3[2]                    ; |Block1|inst3[2]                    ; out              ;
+; |Block1|inst3[0]                    ; |Block1|inst3[0]                    ; out              ;
+; |Block1|Din[7]                      ; |Block1|Din[7]                      ; out              ;
+; |Block1|Din[7]                      ; |Block1|Din[7]~result               ; pin_out          ;
+; |Block1|Din[6]                      ; |Block1|Din[6]                      ; out              ;
+; |Block1|Din[6]                      ; |Block1|Din[6]~result               ; pin_out          ;
+; |Block1|Din[5]                      ; |Block1|Din[5]                      ; out              ;
+; |Block1|Din[5]                      ; |Block1|Din[5]~result               ; pin_out          ;
+; |Block1|Din[4]                      ; |Block1|Din[4]                      ; out              ;
+; |Block1|Din[4]                      ; |Block1|Din[4]~result               ; pin_out          ;
+; |Block1|Din[3]                      ; |Block1|Din[3]                      ; out              ;
+; |Block1|Din[3]                      ; |Block1|Din[3]~result               ; pin_out          ;
+; |Block1|Din[2]                      ; |Block1|Din[2]                      ; out              ;
+; |Block1|Din[2]                      ; |Block1|Din[2]~result               ; pin_out          ;
+; |Block1|Din[1]                      ; |Block1|Din[1]                      ; out              ;
+; |Block1|Din[1]                      ; |Block1|Din[1]~result               ; pin_out          ;
+; |Block1|Din[0]                      ; |Block1|Din[0]                      ; out              ;
+; |Block1|Din[0]                      ; |Block1|Din[0]~result               ; pin_out          ;
+; |Block1|Din~0                       ; |Block1|Din~0                       ; out0             ;
+; |Block1|Din~1                       ; |Block1|Din~1                       ; out0             ;
+; |Block1|Din~2                       ; |Block1|Din~2                       ; out0             ;
+; |Block1|Din~3                       ; |Block1|Din~3                       ; out0             ;
+; |Block1|Din~4                       ; |Block1|Din~4                       ; out0             ;
+; |Block1|Din~5                       ; |Block1|Din~5                       ; out0             ;
+; |Block1|Din~6                       ; |Block1|Din~6                       ; out0             ;
+; |Block1|Din~7                       ; |Block1|Din~7                       ; out0             ;
+; |Block1|usbconnection:inst2|a_in[0] ; |Block1|usbconnection:inst2|a_in[0] ; regout           ;
+; |Block1|usbconnection:inst2|dout[4] ; |Block1|usbconnection:inst2|dout[4] ; regout           ;
+; |Block1|usbconnection:inst2|dout[3] ; |Block1|usbconnection:inst2|dout[3] ; regout           ;
+; |Block1|usbconnection:inst2|dout[2] ; |Block1|usbconnection:inst2|dout[2] ; regout           ;
+; |Block1|usbconnection:inst2|c~0     ; |Block1|usbconnection:inst2|c~0     ; out              ;
+; |Block1|usbconnection:inst2|c~1     ; |Block1|usbconnection:inst2|c~1     ; out              ;
+; |Block1|usbconnection:inst2|c~2     ; |Block1|usbconnection:inst2|c~2     ; out              ;
+; |Block1|usbconnection:inst2|c~4     ; |Block1|usbconnection:inst2|c~4     ; out              ;
+; |Block1|usbconnection:inst2|c~5     ; |Block1|usbconnection:inst2|c~5     ; out              ;
+; |Block1|usbconnection:inst2|c~6     ; |Block1|usbconnection:inst2|c~6     ; out              ;
+; |Block1|usbconnection:inst2|c~9     ; |Block1|usbconnection:inst2|c~9     ; out              ;
+; |Block1|usbconnection:inst2|c~10    ; |Block1|usbconnection:inst2|c~10    ; out              ;
+; |Block1|usbconnection:inst2|c~14    ; |Block1|usbconnection:inst2|c~14    ; out              ;
+; |Block1|usbconnection:inst2|d[5]    ; |Block1|usbconnection:inst2|d[5]    ; out              ;
+; |Block1|usbconnection:inst2|c[2]    ; |Block1|usbconnection:inst2|c[2]    ; out              ;
+; |Block1|usbconnection:inst2|dout[1] ; |Block1|usbconnection:inst2|dout[1] ; regout           ;
+; |Block1|usbconnection:inst2|dout[0] ; |Block1|usbconnection:inst2|dout[0] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[1] ; |Block1|usbconnection:inst2|a_in[1] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[2] ; |Block1|usbconnection:inst2|a_in[2] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[3] ; |Block1|usbconnection:inst2|a_in[3] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[4] ; |Block1|usbconnection:inst2|a_in[4] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[5] ; |Block1|usbconnection:inst2|a_in[5] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[6] ; |Block1|usbconnection:inst2|a_in[6] ; regout           ;
+; |Block1|usbconnection:inst2|a_in[7] ; |Block1|usbconnection:inst2|a_in[7] ; regout           ;
++-------------------------------------+-------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.0 Build 184 04/29/2009 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon May 10 11:19:28 2021
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off usbconnection -c usbconnection
+Info: Using vector source file "D:/lh/大二下/数字系统实验/串口通信/usbconnection/usbconnection.vwf"
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[7]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[6]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[5]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[4]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[3]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[2]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[1]" in design.
+Warning: Ignored node in vector source file. Can't find corresponding node name "outout[0]" in design.
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Warning: Found logic contention at time 5.0 ns on bus node "|Block1|Din~0"
+    Info: Node "Din[7]" has logic level of 1
+    Info: Node "inst4[7]" has logic level of 0
+Warning: Found logic contention at time 5.0 ns on bus node "|Block1|Din~2"
+    Info: Node "Din[5]" has logic level of 1
+    Info: Node "inst4[5]" has logic level of 0
+Warning: Found logic contention at time 5.0 ns on bus node "|Block1|Din~5"
+    Info: Node "Din[2]" has logic level of 1
+    Info: Node "inst4[2]" has logic level of 0
+Warning: Found logic contention at time 5.0 ns on bus node "|Block1|Din~7"
+    Info: Node "Din[0]" has logic level of 1
+    Info: Node "inst4[0]" has logic level of 0
+Warning: Found logic contention at time 75.0 ns on bus node "|Block1|Din~0"
+    Info: Node "Din[7]" has logic level of 1
+    Info: Node "inst4[7]" has logic level of 0
+Warning: Found logic contention at time 75.0 ns on bus node "|Block1|Din~2"
+    Info: Node "Din[5]" has logic level of 1
+    Info: Node "inst4[5]" has logic level of 0
+Warning: Found logic contention at time 75.0 ns on bus node "|Block1|Din~5"
+    Info: Node "Din[2]" has logic level of 1
+    Info: Node "inst4[2]" has logic level of 0
+Warning: Found logic contention at time 75.0 ns on bus node "|Block1|Din~7"
+    Info: Node "Din[0]" has logic level of 1
+    Info: Node "inst4[0]" has logic level of 0
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      47.46 %
+Info: Number of transitions in simulation is 1218
+Info: Quartus II Simulator was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 155 megabytes
+    Info: Processing ended: Mon May 10 11:19:28 2021
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
